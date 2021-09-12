@@ -1,18 +1,28 @@
-*{
+* {
     padding: 0px;
     margin: 0px;
 }
-body{
+body {
     text-align: center;
     background-color: beige;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
-h2{
-    margin-bottom: 10px;;
+#songPlayer {
+    position: fixed;
+    bottom: 0px;
+    width: 100vw;
+    height: 60px;
+    background-color: whitesmoke;
 }
-.eachSong{
+#playlists {
+    margin-bottom: 70px;
+}
+h2 {
+    margin-bottom: 10px;
+}
+.eachSong {
     border: 1px solid black;
-    width:50vw;
+    width: 50vw;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
@@ -22,17 +32,33 @@ h2{
     position: relative;
     height: 100px;
 }
-.songIMG{
+.songIMG {
     height: 100px;
-    position:absolute;
+    position: absolute;
     left: 5px;
 }
-.songPara{
+.songPara {
     position: absolute;
     bottom: 10px;
-    left:150px;
+    left: 150px;
 }
-.playlistName{
+.playlistName {
     font-size: 50px;
     margin-right: 50px;
+}
+.playlistSongCount {
+    margin-right: 100px;
+}
+.playButton {
+    height: 50px;
+    position: absolute;
+    right: 15px;
+    bottom: 25px;
+    opacity: 0.7;
+}
+.playButton:hover{
+    opacity: 1;
+}
+audio {
+    width: 100vw;
 }
