@@ -4,7 +4,7 @@
 }
 body {
     text-align: center;
-    background-color: rgb(218, 218, 203);
+    background-color: rgb(216, 216, 209);
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 #songPlayer {
@@ -12,7 +12,7 @@ body {
     bottom: 0px;
     width: 100vw;
     height: 60px;
-    background-color: rgb(136, 127, 127);
+    background-color: rgb(214, 214, 214);
 }
 #playlists {
     margin-bottom: 70px;
