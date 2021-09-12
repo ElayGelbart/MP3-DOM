@@ -59,7 +59,7 @@ const player = {
     ],
     playlists: [
         { id: 1, name: "Metal", songs: [1, 7, 4, 6] },
-        { id: 5, name: "Israeli", songs: [4, 5] },
+        { id: 2, name: "Israeli", songs: [4, 5] },
     ],
 }
 
@@ -74,7 +74,13 @@ function getBiggestSongID() {
     }
     return biggestID;
 }
-
+function getNumOfSongsInPlaylist(playlistId){
+let counter =0;
+for(let i=0;i<player.playlists[getPlaylistIndexFromID(playlistId)].songs.length;i++){
+    counter++;
+}
+return counter;
+}
 function getBiggestPlaylistID() {
     let biggestID = 0;
     for (let key of player.playlists) {
