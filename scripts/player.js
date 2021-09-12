@@ -116,7 +116,7 @@ function durationToSeconds(duration) {
 function getSongValuesFronId(id) {
     for (let i = 0; i < player.songs.length; i++) {
         if (player.songs[i].id === id) {
-            return { title, album, artist, duration, } = player.songs[i], songArrIndex = i;
+            return { title, album, artist, duration,coverArt } = player.songs[i], songArrIndex = i;
         }
     }
     throw 'Please enter valid id';

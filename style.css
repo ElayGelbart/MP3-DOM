@@ -1,1 +1,28 @@
-/* Your code here */
+*{
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    text-align: center;
+    background-color: beige;
+}
+h2{
+    margin-bottom: 10px;;
+}
+.eachSong{
+    border: 1px solid black;
+    width:50vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: azure;
+    position: relative;
+    height: 100px;
+}
+.songIMG{
+    height: 100px;
+    position:absolute;
+    left: 5px;
+}
