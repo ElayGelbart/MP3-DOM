@@ -13,7 +13,7 @@ function createPlaylistElement() {
     const playlistdiv = document.getElementById("playlists");
     for (let key of player.playlists) {
         getSongValuesFronId(key.songs[0]);
-        playlistdiv.appendChild(document.createElement("div")).innerHTML = `<img class="songIMG" src="${coverArt}"><p class="songPara"><span class="playlistName">${key.name}</span> <span class="playlistSongCount">${getNumOfSongsInPlaylist(key.id)} Songs</span> <span class="playlistDuration">Total duration ${durationToMMSS(playlistDuration(key.id))}</span></p><img class="playButton" src="./images/playButton.png">`;
+        playlistdiv.appendChild(document.createElement("div")).innerHTML = `<img class="songIMG" src="${coverArt}"><p class="songPara"><span class="playlistName">${key.name}</span> <span class="playlistSongCount">${getNumOfSongsInPlaylist(key.id)} Songs</span> <span class="playlistDuration">Total duration ${durationToMMSS(playlistDuration(key.id))}</span></p><img class="playButton" onclick="playTheSong4Playlist(${key.id})" src="./images/playButton.png">`;
     }
     const playlistDiv = playlistdiv.getElementsByTagName("div");
     for (let key of playlistDiv) {
@@ -32,6 +32,19 @@ function playTheSong(songID) {
         else {
             playTheSong(songID + 1);
         }
+    });
+}
+let counter=0;
+function playTheSong4Playlist(playlistID) {
+    songID = player.playlists[getPlaylistIndexFromID(playlistID)].songs[counter];
+    getSongValuesFronId(songID);
+    document.getElementById("songDes").innerHTML = `Playing ${title} By ${artist} From The Album ${album}`;
+    const audio = document.querySelector("audio");
+    audio.setAttribute("src", player.songs[songArrIndex].AudioSRC);
+    audio.addEventListener('ended', function () {
+      counter++;
+      if(counter<player.playlists[getPlaylistIndexFromID(playlistID)].songs.length){
+      playTheSong4Playlist(playlistID);}
     });
 }
 createSongElement();

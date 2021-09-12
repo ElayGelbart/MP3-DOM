@@ -4,7 +4,7 @@
 }
 body {
     text-align: center;
-    background-color: beige;
+    background-color: rgb(218, 218, 203);
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 #songPlayer {
@@ -12,23 +12,25 @@ body {
     bottom: 0px;
     width: 100vw;
     height: 60px;
-    background-color: whitesmoke;
+    background-color: rgb(136, 127, 127);
 }
 #playlists {
     margin-bottom: 70px;
 }
 h2 {
     margin-bottom: 10px;
+    color:rgb(41, 36, 32);
 }
 .eachSong {
-    border: 1px solid black;
+    border: 1px solid rgb(68, 63, 63);
+    border-radius: 10px;
     width: 50vw;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
     padding-top: 5px;
     padding-bottom: 5px;
-    background-color: azure;
+    background-color: rgb(85, 128, 128);
     position: relative;
     height: 100px;
 }
