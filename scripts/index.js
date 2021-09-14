@@ -10,8 +10,9 @@ function createSongElement() {
         key.classList.add("eachSong");
     }
 }
-function deleteSongsFromPage(){
-    document.getElementById("songs").innerHTML = '';  
+function deleteSongsNPlaylistsFromPage(){
+    document.getElementById("songs").innerHTML = '';
+    document.getElementById("playlists").innerHTML = '';  
 }
 
 function createPlaylistElement() {

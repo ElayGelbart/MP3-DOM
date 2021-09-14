@@ -19,6 +19,7 @@ const removeSong = (id) => {
             key.songs.splice(indexInList, 1);
         }
     }
-    deleteSongsFromPage();
+    deleteSongsNPlaylistsFromPage();
     createSongElement();
+    createPlaylistElement()
 }

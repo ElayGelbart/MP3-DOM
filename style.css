@@ -64,6 +64,11 @@ h2 {
 }
 .deleteButton{
     background-color: red;
+    position: absolute;
+    right:0px;
+    top:0px;
+    border-radius: 0px 10px;
+    width: 50px;
 }
 audio {
     width: 100vw;
