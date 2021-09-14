@@ -1,22 +1,17 @@
 function createSongElement() {
     const songsdiv = document.getElementById("songs");
     for (let key of player.songs) {
-        getSongValuesFronId(key.id);
-        songsdiv.appendChild(document.createElement("div")).innerHTML = `<img class="songIMG" src="${coverArt}"><p class="songPara"><span class="songTitle">${title}</span> <span class="songArtist">By ${artist}</span> <span class="songAlbum">From ${album}</span> <span class="songDuration">${durationToMMSS(duration)}</span></p><img class="playButton" onclick="playTheSong(${key.id})" src="./images/playButton.png">`;
+            getSongValuesFronId(key.id);
+            songsdiv.appendChild(document.createElement("div")).innerHTML = `<img class="songIMG" src="${coverArt}"><p class="songPara"><span class="songTitle">${title}</span> <span class="songArtist">By ${artist}</span> <span class="songAlbum">From ${album}</span> <span class="songDuration">${durationToMMSS(duration)}</span> </p> <span class="deleteButton" onclick="removeSong(${key.id})">X</span> <img class="playButton" onclick="playTheSong(${key.id})" src="./images/playButton.png">`;
+            key.showed=true;
     }
     const songdivs = songsdiv.getElementsByTagName("div");
     for (let key of songdivs) {
         key.classList.add("eachSong");
     }
 }
-function createNewSongElement() {
-    const songsdiv = document.getElementById("songs");
-    getSongValuesFronId(player.songs[player.songs.length - 1].id);
-    songsdiv.appendChild(document.createElement("div")).innerHTML = `<img class="songIMG" src="${coverArt}"><p class="songPara"><span class="songTitle">${title}</span> <span class="songArtist">By ${artist}</span> <span class="songAlbum">From ${album}</span> <span class="songDuration">${durationToMMSS(duration)}</span></p><img class="playButton" onclick="playTheSong(${player.songs[player.songs.length - 1].id})" src="./images/playButton.png">`;
-    const songdivs = songsdiv.getElementsByTagName("div");
-    for (let key of songdivs) {
-        key.classList.add("eachSong");
-    }
+function deleteSongsFromPage(){
+    document.getElementById("songs").innerHTML = '';  
 }
 
 function createPlaylistElement() {

@@ -161,17 +161,6 @@ function playSong(id) {
     console.log(`Playing ${title} from ${album} by ${artist} | ${durationToMMSS(duration)}.`)
 }
 
-function removeSong(id) {
-    getSongValuesFronId(id);
-    player.songs.splice(songArrIndex, 1);
-    for (let key of player.playlists) {
-        let indexInList = key.songs.indexOf(id);
-        if (indexInList >= 0) {
-            key.songs.splice(indexInList, 1);
-        }
-    }
-}
-
 function addSong(title, album, artist,coverArt,AudioSRC,duration,id) {
     // if (typeof (duration) === 'string') {
     //     durationToSeconds(duration);

@@ -62,6 +62,9 @@ h2 {
 .playButton:hover{
     opacity: 1;
 }
+.deleteButton{
+    background-color: red;
+}
 audio {
     width: 100vw;
 }
