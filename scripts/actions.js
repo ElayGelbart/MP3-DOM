@@ -32,5 +32,6 @@ const postSongByQuery = () => {
     const query = document.getElementById("songsearcher").value;
     deleteSongsNPlaylistsFromPage();
     createQeurySongElement(searchByQuery(query));
+    createQeuryPlaylistElement(searchByQuery(query));
 }
 document.getElementById("songsearcher").addEventListener("input",postSongByQuery);

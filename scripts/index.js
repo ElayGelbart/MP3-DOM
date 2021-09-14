@@ -36,9 +36,21 @@ function createPlaylistElement() {
         key.classList.add("eachSong");
     }
 }
+function createQeuryPlaylistElement(resultObj) {
+    const playlistdiv = document.getElementById("playlists");
+    for (let key of resultObj.playlists) {
+        getSongValuesFronId(key.songs[0]);
+        playlistdiv.appendChild(document.createElement("div")).innerHTML = `<img class="songIMG" src="${coverArt}"><p class="songPara"><span class="playlistName">${key.name}</span> <span class="playlistSongCount">${getNumOfSongsInPlaylist(key.id)} Songs</span> <span class="playlistDuration">Total duration ${durationToMMSS(playlistDuration(key.id))}</span></p><img class="playButton" onclick="playTheSong4Playlist(${key.id})" src="./images/playButton.png">`;
+    }
+    const playlistDiv = playlistdiv.getElementsByTagName("div");
+    for (let key of playlistDiv) {
+        key.classList.add("eachSong");
+    }
+}
+
 function playTheSong(songID) {
     getSongValuesFronId(songID);
-    document.getElementById("songDes").innerHTML = `Playing ${title} By ${artist} From The Album ${album}`;
+    document.getElementById("songDes").innerHTML = `Playing  <strong>${title}</strong> By <strong>${artist}</strong> From The Album <strong>${album}</strong>`;
     const audio = document.querySelector("audio");
     audio.setAttribute("src", player.songs[songArrIndex].AudioSRC);
     audio.addEventListener('ended', function () {
@@ -54,7 +66,7 @@ let counter = 0;
 function playTheSong4Playlist(playlistID) {
     songID = player.playlists[getPlaylistIndexFromID(playlistID)].songs[counter];
     getSongValuesFronId(songID);
-    document.getElementById("songDes").innerHTML = `Playing ${title} By ${artist} From The Album ${album}`;
+    document.getElementById("songDes").innerHTML = `Playing  <strong>${title}</strong> By <strong>${artist}</strong> From The Album <strong>${album}</strong>`;
     const audio = document.querySelector("audio");
     audio.setAttribute("src", player.songs[songArrIndex].AudioSRC);
     audio.addEventListener('ended', function () {
