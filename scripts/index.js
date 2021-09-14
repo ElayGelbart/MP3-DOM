@@ -9,6 +9,16 @@ function createSongElement() {
         key.classList.add("eachSong");
     }
 }
+function createNewSongElement() {
+    const songsdiv = document.getElementById("songs");
+    getSongValuesFronId(player.songs[player.songs.length - 1].id);
+    songsdiv.appendChild(document.createElement("div")).innerHTML = `<img class="songIMG" src="${coverArt}"><p class="songPara"><span class="songTitle">${title}</span> <span class="songArtist">By ${artist}</span> <span class="songAlbum">From ${album}</span> <span class="songDuration">${durationToMMSS(duration)}</span></p><img class="playButton" onclick="playTheSong(${player.songs[player.songs.length - 1].id})" src="./images/playButton.png">`;
+    const songdivs = songsdiv.getElementsByTagName("div");
+    for (let key of songdivs) {
+        key.classList.add("eachSong");
+    }
+}
+
 function createPlaylistElement() {
     const playlistdiv = document.getElementById("playlists");
     for (let key of player.playlists) {
@@ -34,7 +44,7 @@ function playTheSong(songID) {
         }
     });
 }
-let counter=0;
+let counter = 0;
 function playTheSong4Playlist(playlistID) {
     songID = player.playlists[getPlaylistIndexFromID(playlistID)].songs[counter];
     getSongValuesFronId(songID);
@@ -42,9 +52,10 @@ function playTheSong4Playlist(playlistID) {
     const audio = document.querySelector("audio");
     audio.setAttribute("src", player.songs[songArrIndex].AudioSRC);
     audio.addEventListener('ended', function () {
-      counter++;
-      if(counter<player.playlists[getPlaylistIndexFromID(playlistID)].songs.length){
-      playTheSong4Playlist(playlistID);}
+        counter++;
+        if (counter < player.playlists[getPlaylistIndexFromID(playlistID)].songs.length) {
+            playTheSong4Playlist(playlistID);
+        }
     });
 }
 createSongElement();

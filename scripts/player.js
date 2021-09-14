@@ -138,13 +138,16 @@ function getSongValuesFronId(id) {
     throw 'Please enter valid id';
 }
 
-function TestArguments(title, album, artist, duration, id) {
+function TestArguments(title, album, artist, duration,coverArt,AudioSRC, id) {
     if (!id) {
         id = getBiggestSongID() + 1;
     }
     if (typeof (title) != 'string' || typeof (album) != 'string' || typeof (artist) != 'string' || typeof (id) != 'number' || id < 1 || id > getBiggestSongID() + 100) {
         throw 'Please Enter Valid Data'
     }
+    // if(!/(.jpg)$/.test(coverArt)||!/(.mp3)$/.test(AudioSRC)){
+    //     throw 'Please Enter cover art or audio source in the right format'
+    // }
     for (let key of player.songs) {
         if (key.id === id) {
             throw 'This ID is taken, pick another ID';
@@ -169,19 +172,21 @@ function removeSong(id) {
     }
 }
 
-function addSong(title, album, artist, duration, id) {
-    if (typeof (duration) === 'string') {
-        durationToSeconds(duration);
-        duration = secondDuration;
-    }
-    TestArguments(title, album, artist, duration, id);
+function addSong(title, album, artist,coverArt,AudioSRC,duration,id) {
+    // if (typeof (duration) === 'string') {
+    //     durationToSeconds(duration);
+    //     duration = secondDuration;
+    // }
+    TestArguments(title, album, artist,coverArt,AudioSRC,duration, id);
     console.log(duration)
     player.songs.push({
         'id': id,
         'title': title,
         'album': album,
         'artist': artist,
-        'duration': duration
+        'duration': duration,
+        'coverArt': coverArt,
+        'AudioSRC': AudioSRC
     });
     return player;
 }

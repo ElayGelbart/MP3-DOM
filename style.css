@@ -36,6 +36,7 @@ h2 {
 }
 .songIMG {
     height: 100px;
+    width: 100px;
     position: absolute;
     left: 5px;
 }
