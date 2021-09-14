@@ -17,9 +17,12 @@ const removeSong = (id) => {
         let indexInList = key.songs.indexOf(id);
         if (indexInList >= 0) {
             key.songs.splice(indexInList, 1);
+            if(key.songs[0]=== undefined){
+                player.playlists.splice(getPlaylistIndexFromID(key.id),1);
+            }
         }
     }
     deleteSongsNPlaylistsFromPage();
     createSongElement();
-    createPlaylistElement()
+    createPlaylistElement();
 }
