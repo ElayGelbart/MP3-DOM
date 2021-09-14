@@ -249,12 +249,10 @@ function searchByQuery(query) {
         songs: []
     };
     for (let i = 0; i < player.songs.length; i++) {
-        for (let prop in player.songs[i]) {
-            if (queryRegex.test(player.songs[i][prop])) {
+            if (queryRegex.test(player.songs[i].title)||queryRegex.test(player.songs[i].album)||queryRegex.test(player.songs[i].artist)) {
                 resultObj.songs.push(player.songs[i]);
-                break;
+                continue;
             }
-        }
     }
     for (let i = 0; i < player.playlists.length; i++) {
         for (let prop in player.playlists[i]) {

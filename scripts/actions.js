@@ -7,9 +7,10 @@ const submitForm = () => {
     let AudioSRC = document.forms["addSongs"]["AudioSRC"].value;
     let duration = document.forms["addSongs"]["duration"].value;
     addSong(title, artist, album, CoverArt, AudioSRC, duration);
-    deleteSongsFromPage();
+    deleteSongsNPlaylistsFromPage();
     createSongElement();
 }
+
 const removeSong = (id) => {
     getSongValuesFronId(id);
     player.songs.splice(songArrIndex, 1);
@@ -17,8 +18,8 @@ const removeSong = (id) => {
         let indexInList = key.songs.indexOf(id);
         if (indexInList >= 0) {
             key.songs.splice(indexInList, 1);
-            if(key.songs[0]=== undefined){
-                player.playlists.splice(getPlaylistIndexFromID(key.id),1);
+            if (key.songs[0] === undefined) {
+                player.playlists.splice(getPlaylistIndexFromID(key.id), 1);
             }
         }
     }
@@ -26,3 +27,10 @@ const removeSong = (id) => {
     createSongElement();
     createPlaylistElement();
 }
+
+const postSongByQuery = () => {
+    const query = document.getElementById("songsearcher").value;
+    deleteSongsNPlaylistsFromPage();
+    createQeurySongElement(searchByQuery(query));
+}
+document.getElementById("songsearcher").addEventListener("input",postSongByQuery);

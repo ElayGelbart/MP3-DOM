@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,25 +12,29 @@
     <script src="./scripts/actions.js" defer></script>
     <title>Action on the Player</title>
 </head>
+
 <body>
     <h1>Here You Can Do Actions On The Player</h1>
     <h3>Add New Song</h3>
     <form name="addSongs">
-        <p>Title:<input type="text" name="title"></p>
-        <p>Artist:<input type="text" name="artist"></p>
-        <p>Album:<input type="text" name="album"></p>
-        <p>CoverArt:<input type="text" name="CoverArt"></p>
-        <p>Audio Source:<input type="text" name="AudioSRC"></p>
-        <p>Duration:<input type="text" name="duration"></p>
+        <p>Title: <input type="text" name="title"></p>
+        <p>Artist: <input type="text" name="artist"></p>
+        <p>Album: <input type="text" name="album"></p>
+        <p>CoverArt: <input type="text" name="CoverArt"></p>
+        <p>Audio Source: <input type="text" name="AudioSRC"></p>
+        <p>Duration: <input type="text" name="duration"></p>
         <p class="regularButton" onclick="submitForm()">Add The Song</p>
-        
     </form>
     <h2>Songs</h2>
+    <p id="searchbytext">Search in Songs <input id="songsearcher" type="text" placeholder="search here"></p>
     <div id="songs">
     </div>
     <h2>Playlists</h2>
     <div id="playlists">
     </div>
-    <div id="songPlayer"><p id="songDes">no song playing right now</p><audio controls autoplay src=""></div>
+    <div id="songPlayer">
+        <p id="songDes">no song playing right now</p><audio controls autoplay src="">
+    </div>
 </body>
+
 </html>
